@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SunodKa – Choose Request</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="request.css">
+</head>
+<body>
+
+  <header>SunodKa — Select Your Request</header>
+  <p class="lead" style="color: black;">Hi, Student! Choose the document or service you need. You’ll receive a queue number after confirming.</p>
+
+  <main class="container">
+
+    <a class="card" href="#tor">
+      <div class="icon">📄</div>
+      <h3>Transcript of Records (TOR)</h3>
+      <p>Certified copy of your academic records.</p>
+    </a>
+
+    <a class="card" href="#cog">
+      <div class="icon">📝</div>
+      <h3>Certificate of Grades</h3>
+      <p>Official certification of subject grades.</p>
+    </a>
+
+    <a class="card" href="#coe">
+      <div class="icon">📑</div>
+      <h3>Certificate of Enrollment</h3>
+      <p>Proof of current enrollment status.</p>
+    </a>
+
+    <a class="card" href="#gmc">
+      <div class="icon">🎓</div>
+      <h3>Good Moral Certificate</h3>
+      <p>Certification of good moral standing.</p>
+    </a>
+
+    <a class="card" href="#clearance">
+      <div class="icon">✅</div>
+      <h3> Clearance</h3>
+      <p>Clearance for signing.</p>
+    </a> 
+    
+  </main>
+<div class="go-back">
+  <a href="services.html" class="btn">← Go Back to Services</a>
+</div>
+  <p class="footer-note">© 2025 SunodKa Queue System</p>
+
+  
+  <!-- TOR -->
+  <section id="tor" class="modal" aria-hidden="true">
+    <div class="dialog" role="dialog" aria-labelledby="torTitle" aria-modal="true">
+      <header>
+        <h2 id="torTitle">Transcript of Records (TOR)</h2>
+        <p>Fill in the details below, then continue to get your queue number.</p>
+      </header>
+    <form method="post" action="submit_request.php">
+  <input type="hidden" name="service_type" value="Transcript of Records">
+
+  <div class="form-row">
+    <div>
+      <label>Student ID (optional)</label>
+      <input type="text" name="student_id" placeholder="Enter Student ID">
+    </div>
+    <div>
+      <label>Full Name</label>
+      <input type="text" name="full_name" placeholder="Enter your full name" required>
+    </div>
+    <div>
+      <label>Course & Year or Program</label>
+      <input type="text" name="course_year" placeholder="BSIT 3rd Year/Graduate/NA" required>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div>
+      <label>Number of Copies</label>
+      <select name="copies" required>
+        <option value="1">1 copy</option>
+        <option value="2">2 copies</option>
+        <option value="3">3 copies</option>
+      </select>
+    </div>
+    <div>
+      <label>Purpose</label>
+      <select name="purpose" required>
+        <option value="employment">Employment</option>
+        <option value="transfer">School Transfer</option>
+        <option value="board">Board Exam</option>
+        <option value="others">Others</option>
+      </select>
+    </div>
+  </div>
+
+  <label>Notes (optional)</label>
+  <textarea name="notes" placeholder="Add extra info if needed..."></textarea>
+
+  <div class="actions">
+    <a href="#" class="btn btn-ghost">Cancel</a>
+    <button type="submit" class="btn btn-primary">Continue → Get Queue #</button>
+  </div>
+</form>
+
+    </div>
+  </section>
+
+  <!-- COG -->
+  <section id="cog" class="modal" aria-hidden="true">
+    <div class="dialog" role="dialog" aria-labelledby="cogTitle" aria-modal="true">
+      <header>
+        <h2 id="cogTitle">Certificate of Grades</h2>
+        <p>Provide the details below.</p>
+      </header>
+    <form method="post" action="submit_request.php">
+  <input type="hidden" name="service_type" value="Certificate of Grades">
+
+  <div class="form-row">
+    <div>
+      <label>Student ID (optional)</label>
+      <input type="text" name="student_id" placeholder="Enter Student ID">
+    </div>
+    <div>
+      <label>Full Name</label>
+      <input type="text" name="full_name" placeholder="Enter your full name" required>
+    </div>
+    <div>
+      <label>Course & Year or Program</label>
+      <input type="text" name="course_year" placeholder="e.g. BSIT 3rd Year or Visitor" required>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div>
+      <label>Semester</label>
+      <select name="semester" required>
+        <option value="1st">1st Semester</option>
+        <option value="2nd">2nd Semester</option>
+        <option value="summer">Summer</option>
+      </select>
+    </div>
+    <div>
+      <label>School Year</label>
+      <input type="text" name="sy" placeholder="e.g., 2024–2025" required>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div>
+      <label>Number of Copies</label>
+      <select name="copies" required>
+        <option value="1">1 copy</option>
+        <option value="2">2 copies</option>
+        <option value="3">3 copies</option>
+      </select>
+    </div>
+    <div>
+      <label>Purpose</label>
+      <select name="purpose" required>
+        <option value="employment">Employment</option>
+        <option value="transfer">School Transfer</option>
+        <option value="board">Board Exam</option>
+        <option value="others">Others</option>
+      </select>
+    </div>
+  </div>
+
+  <label>Notes (optional)</label>
+  <textarea name="notes" placeholder="Add extra info if needed..."></textarea>
+
+  <div class="actions">
+    <a href="#" class="btn btn-ghost">Cancel</a>
+    <button type="submit" class="btn btn-primary">Continue → Get Queue #</button>
+  </div>
+</form>
+  
+    </div>
+  </section>
+
+  <!-- COE -->
+  <section id="coe" class="modal" aria-hidden="true">
+    <div class="dialog" role="dialog" aria-labelledby="coeTitle" aria-modal="true">
+      <header>
+        <h2 id="coeTitle">Certificate of Enrollment</h2>
+        <p>Confirm your details below.</p>
+      </header>
+      <form method="post" action="submit_request.php">
+   <input type="hidden" name="service_type" value="Certificate of Enrollment">
+
+        <div class="form-row">
+          <div>
+             <div>
+      <label>Student ID (optional)</label>
+      <input type="text" name="student_id" placeholder="Enter Student ID">
+    </div>
+    <div>
+      <label>Full Name</label>
+      <input type="text" name="full_name" placeholder="Enter your full name" required>
+    </div>
+    <div>
+      <label>Course & Year or Program</label>
+      <input type="text" name="course_year" placeholder="e.g. BSIT 3rd Year" required>
+    </div>
+            <label>Term</label>
+            <select name="term" required>
+              <option value="current">Current Term</option>
+              <option value="previous">Previous Term</option>
+            </select>
+          </div>
+          <div>
+            <label>Copies</label>
+            <select name="copies" required>
+              <option value="1">1 copy</option>
+              <option value="2">2 copies</option>
+              <option value="3">3 copies</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a href="#" class="btn btn-ghost">Cancel</a>
+          <button type="submit" class="btn btn-primary">Continue → Get Queue #</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- GMC -->
+  <section id="gmc" class="modal" aria-hidden="true">
+    <div class="dialog" role="dialog" aria-labelledby="gmcTitle" aria-modal="true">
+      <header>
+        <h2 id="gmcTitle">Good Moral Certificate</h2>
+        <p>Please provide your details.</p>
+      </header>
+      <form method="post" action="submit_request.php">
+      <input type="hidden" name="service_type" value="Good Moral Certificate">
+         
+      <div class="form-row">
+    <div>
+      <label>Student ID (optional)</label>
+      <input type="text" name="student_id" placeholder="Enter Student ID">
+    </div>
+    <div>
+      <label>Full Name</label>
+      <input type="text" name="full_name" placeholder="Enter your full name" required>
+    </div>
+    <div>
+      <label>Course & Year or Program</label>
+      <input type="text" name="course_year" placeholder="e.g. BSIT 3rd Year" required>
+    </div>
+  </div>
+        <label>Purpose</label>
+        <select name="purpose" required>
+          <option value="graduation">Graduation</option>
+          <option value="transfer">School Transfer</option>
+          <option value="employment">Employment</option>
+          <option value="others">Others</option>
+        </select>
+
+        <div class="actions">
+          <a href="#" class="btn btn-ghost">Cancel</a>
+          <button type="submit" class="btn btn-primary">Continue → Get Queue #</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+
+
+  <!-- CLEARANCE -->
+  <section id="clearance" class="modal" aria-hidden="true">
+    <div class="dialog" role="dialog" aria-labelledby="clearTitle" aria-modal="true">
+      <header>
+        <h2 id="clearTitle">Accounting Clearance</h2>
+        <p>We’ll check remaining obligations and prepare your clearance.</p>
+      </header>
+      <form method="post" action="submit_request.php">
+    
+      <input type="hidden" name="service_type" value="Accounting Clearance">
+
+     <div class="form-row">
+    <div>
+      <label>Student ID (optional)</label>
+      <input type="text" name="student_id" placeholder="Enter Student ID">
+    </div>
+    <div>
+      <label>Full Name</label>
+      <input type="text" name="full_name" placeholder="Enter your full name" required>
+    </div>
+    <div>
+      <label>Course & Year or Program</label>
+      <input type="text" name="course_year" placeholder="e.g. BSIT 3rd Year" required>
+    </div>
+  </div>
+        <label>Remarks (optional)</label>
+        <textarea name="remarks" placeholder="Add any info you want the staff to see…"></textarea>
+
+        <div class="actions">
+          <a href="#" class="btn btn-ghost">Cancel</a>
+          <button type="submit" class="btn btn-primary">Continue → Get Queue #</button>
+        </div>
+      </form>
+    </div>
+  </section>
+  
+
+</body>
+</html>

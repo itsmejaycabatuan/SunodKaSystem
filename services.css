@@ -1,0 +1,132 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Create a blurred background layer */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(images/scc4.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(5px); /* Adjust blur intensity */
+  z-index: -1; /* Send behind content */
+}
+
+
+
+.container {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 260px; 
+  padding-bottom: 50px; 
+
+}
+
+.card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+  text-align: center;
+  padding: 60px 40px;
+  width: 280px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+
+.card-icon {
+  font-size: 70px;
+  margin-bottom: 20px;
+}
+
+.card h2 {
+  font-size: 22px;
+  color: #b30000;
+  margin: 0;
+}
+
+ header {
+    padding-top: 10px;
+    background-color: #fff;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;           
+    justify-content: center;  
+    align-items: center;
+    padding: 5px 5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    gap: -7px;               
+
+}
+.first-logo, .text-center, .second-logo {
+    flex: 1 1 250px;          
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.logo {
+    width: 200px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.itlogo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.location {
+    line-height: 1.4;
+     font-family: "Funnel Display", sans-serif;
+     font-size: 15px;
+}
+.go-back {
+  text-align: center;
+}
+
+.go-back .btn {
+  display: inline-block;
+  background: #f4f3f3;
+  color: #a22525;
+  padding: 15px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s ease; 
+}
+
+.go-back .btn:hover {
+     
+               
+  box-shadow: 0 4px 10px rgba(162, 37, 37, 0.4); 
+  transform: translateY(-3px); 
+}
+

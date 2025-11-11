@@ -1,0 +1,88 @@
+   body {
+      font-family: Arial, sans-serif;
+          background-image: url(images/scc4.png);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+       background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: cover;
+    }
+    .navbar {
+    display: flex;
+    flex-wrap: wrap;           
+    justify-content: center;  
+    align-items: center;
+    padding: 5px 5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    gap: -7px;               
+
+}
+.first-logo, .text-center, .second-logo {
+    flex: 1 1 250px;          
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.logo {
+    width: 200px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.itlogo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.location {
+    line-height: 1.4;
+     font-family: "Funnel Display", sans-serif;
+     font-size: 15px;
+     color: black;
+}
+    .login-box {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      text-align: center;
+      width: 350px;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #fb1c1c;
+    }
+   input {
+  width: 90%;
+  padding: 15px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Add shadow */
+}
+    button {
+      background: #ff5252;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #e53935;
+    }

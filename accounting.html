@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SunodKa - Accounting Requests</title>
+  <link rel="stylesheet" href="accountingreq.css">
+</head>
+<body>
+  <header>
+    <h1>SunodKa - Select Your Request</h1>
+  </header>
+  <p class="lead" style="color: black;">Please select the document you want to request:</p>
+
+  <div class="container">
+    <!-- Tuition Balance -->
+    <a href="#modal1" class="card">
+      <div class="icon">💰</div>
+      <h3>Tuition Balance</h3>
+      <p>Check your outstanding tuition balance.</p>
+    </a>
+
+    <!-- Statement of Account -->
+    <a href="#modal2" class="card">
+      <div class="icon">📄</div>
+      <h3>Statement of Account</h3>
+      <p>Request a detailed statement of your account.</p>
+    </a>
+
+    <!-- Financial Clearance -->
+    <a href="#modal3" class="card">
+      <div class="icon">✅</div>
+      <h3>Financial Clearance</h3>
+      <p>Get financial clearance for graduation or enrollment.</p>
+    </a>
+</div>
+<div class="go-back">
+  <a href="services.html" class="btn">← Go Back to Services</a>
+</div>
+<p class="footer-note">© 2025 SunodKa Queue System</p>
+  
+  <!-- Tuition Balance Modal -->
+  <div class="modal" id="modal1">
+    <div class="dialog">
+      <header><h2>Tuition Balance Request</h2></header>
+      <p>Fill out the form to request your balance record.</p>
+       <form method="POST" action="submit_request.php">
+      <input type="hidden" name="service_type" value="Tuition Balance">
+
+      <div class="form-row">
+        <div>
+          <label>Student ID (optional)</label>
+          <input type="text" name="student_id" placeholder="Enter Student ID">
+        </div>
+        <div>
+          <label>Full Name</label>
+          <input type="text" name="full_name" placeholder="Enter your full name" required>
+        </div>
+        <div>
+          <label>Course & Year or Program</label>
+          <input type="text" name="course_year" placeholder="e.g. BSIT 3rd Year" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div>
+          <label for="semester">Semester</label>
+          <select name="semester" id="semester" required>
+            <option value="">Select Semester</option>
+            <option value="1st Semester">1st Semester</option>
+            <option value="2nd Semester">2nd Semester</option>
+            <option value="Summer">Summer</option>
+          </select>
+        </div>
+      </div>
+
+      <label>Remarks (optional)</label>
+      <textarea name="remarks" placeholder="Add any notes if necessary…"></textarea>
+
+      <div class="actions">
+        <a href="#" class="btn btn-ghost close">Cancel</a>
+        <button type="submit" class="btn btn-primary">Continue → Get Queue #</button>
+      </div>
+    </form>
+    </div>
+  </div>
+
+  <!-- Statement of Account Modal -->
+  <div class="modal" id="modal2">
+    <div class="dialog">
+      <header><h2>Statement of Account</h2></header>
+      <p>Fill out the form to request a statement of account.</p>
+       <form method="POST" action="submit_request.php">
+      <input type="hidden" name="service_type" value="Statement of Account">
+
+      <div class="form-row">
+        <div>
+          <label>Student ID (optional)</label>
+          <input type="text" name="student_id" placeholder="Enter Student ID">
+        </div>
+        <div>
+          <label>Full Name</label>
+          <input type="text" name="full_name" placeholder="Enter your full name" required>
+        </div>
+        <div>
+          <label>Course & Year or Program </label>
+          <input type="text" name="course_year" placeholder="e.g. BSIT 3rd Year" required>
+        </div>
+      </div>
+
+      <label>Remarks (optional)</label>
+      <textarea name="remarks" placeholder="Add any notes if needed…"></textarea>
+
+      <div class="actions">
+        <a href="#" class="btn btn-ghost close">Cancel</a>
+        <button type="submit" class="btn btn-primary">Continue → Get Queue #</button>
+      </div>
+    </form>
+    </div>
+  </div>
+
+  <!-- Financial Clearance Modal -->
+  <div class="modal" id="modal3">
+    <div class="dialog">
+      <header><h2>Financial Clearance</h2></header>
+      <p>Request financial clearance for graduation or enrollment.</p>
+      <form method="POST" action="submit_request.php">
+  <input type="hidden" name="service_type" value="Financial Clearance">
+
+  <div class="form-row">
+    <div>
+      <label>Student ID (optional)</label>
+      <input type="text" name="student_id" placeholder="Enter Student ID">
+    </div>
+    <div>
+      <label>Full Name</label>
+      <input type="text" name="full_name" placeholder="Enter your full name" required>
+    </div>
+    <div>
+      <label>Course & Year or Program </label>
+      <input type="text" name="course_year" placeholder="e.g. BSIT 3rd Year" required>
+    </div>
+  </div>
+
+  <div>
+    <label for="clearPurpose">Purpose</label>
+    <input type="text" name="purpose" id="clearPurpose" placeholder="E.g. Graduation, Enrollment" required>
+  </div>
+
+  <div class="actions">
+    <a href="#" class="btn btn-ghost close">Cancel</a>
+    <button type="submit" class="btn btn-primary">Continue → Get Queue #</button>
+  </div>
+</form>
+    </div>
+  </div>
+
+
+
+</body>
+</html>
+
