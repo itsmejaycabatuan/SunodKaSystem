@@ -1,42 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>SunodKa - Choose Service</title>
-    <link rel="stylesheet" href="services.css">
+  <meta charset="UTF-8">
+  <title>SunodKa - Choose Service</title>
+    <link rel="stylesheet" href="services.css">
 </head>
 <body>
-  
-  <header >
-        <div class="navbar">
-          <div class="first-logo">
-        <img src="images/logo.png" alt="systemlogo" class="logo">
-        </div>
-        <div class="text-center">
-         <p class="location">St.Cecilia's College-Cebu, Inc.<br>
-            Supervised by the Lasallian Schools Supervision Office (LASSO)<br>
-            Cebu Sout Natioanal Highway, Ward II, Minglanilla, Cebu.
-         </p>
-         </div>
-         <div class="second-logo">
-         <img src="images/itlogo.png" alt="BSIT" class="itlogo">
-        </div>
-        </div>
-       </header>
-  
-  <div class="container">
-    
-    <div class="card" onclick="window.location.href='requests.html'">
-      <div class="card-icon">🏫</div>
-      <h2>Registrar Services</h2>
-    </div>
-    <div class="card" onclick="window.location.href='accounting.html'">
-      <div class="card-icon">💰</div>
-      <h2>Accounting Services</h2>
-    </div>
-  </div>
-  <div class="go-back">
-  <a href="index.html" class="btn">← Go Back to Home</a>
+  
+  <header >
+        <div class="navbar">
+          <div class="first-logo">
+        <img src="images/logo.png" alt="systemlogo" class="logo">
+        </div>
+        <div class="text-center">
+         <p class="location">St.Cecilia's College-Cebu, Inc.<br>
+            Supervised by the Lasallian Schools Supervision Office (LASSO)<br>
+            Cebu Sout Natioanal Highway, Ward II, Minglanilla, Cebu.
+         </p>
+         </div>
+         <div class="second-logo">
+         <img src="images/itlogo.png" alt="BSIT" class="itlogo">
+        </div>
+        </div>
+       </header>
+  
+  <div class="container">
+    
+        <div class="card" onclick="startTransition('requests.html')">
+      <div class="card-icon">🏫</div>
+      <h2>Registrar Services</h2>
+    </div>
+        <div class="card" onclick="startTransition('accounting.html')">
+      <div class="card-icon">💰</div>
+      <h2>Accounting Services</h2>
+    </div>
+  </div>
+  <div class="go-back">
+  <a href="index.html" class="btn go-back-btn">← Go Back to Home</a>
 </div>
+
+<script>
+    // Animation for when clicking a CARD to move FORWARD
+    function startTransition(url) {
+        const container = document.querySelector('.container');
+        const goBack = document.querySelector('.go-back');
+
+        // Apply slide-out animation to all main content
+        container.style.animation = 'slideOut 0.5s ease-in forwards';
+        goBack.style.animation = 'slideOut 0.5s ease-in forwards';
+
+        // Wait for the animation to complete before navigating
+        setTimeout(() => {
+            window.location.href = url;
+        }, 450); 
+    }
+
+    // Animation for when clicking the GO BACK button
+    document.addEventListener('DOMContentLoaded', () => {
+        const goBackButton = document.querySelector('.go-back-btn');
+        const container = document.querySelector('.container');
+        const goBack = document.querySelector('.go-back');
+
+        goBackButton.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            // Apply slide-out animation to all main content
+            container.style.animation = 'slideOut 0.5s ease-in forwards'; 
+            goBack.style.animation = 'slideOut 0.5s ease-in forwards';
+
+            // Wait for the animation to complete before navigating
+            setTimeout(() => {
+                window.location.href = goBackButton.href;
+            }, 450); 
+        });
+    });
+</script>
 </body>
 </html>

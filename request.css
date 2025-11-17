@@ -1,96 +1,129 @@
 :root {
-  --red: #c62828;
-  --bg: #f5f5f5;
-  --card: #ffffff;
-  --muted: #6b7280;
+--red: #c62828;
+--bg: #f5f5f5;
+--card: #ffffff;
+--muted: #6b7280;
+}
+
+/* --- New Keyframe Animation for Slide-In --- */
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px); /* Start 30px below its final position */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at its original position */
+    }
 }
 
 * {
-  box-sizing: border-box;
+box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: var(--bg);
-  color: #111;
+margin: 0;
+font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+background: var(--bg);
+color: #111;
+overflow-x: hidden; /* Prevent horizontal scroll during animation */
 }
 
 header {
-  background: var(--red);
-  color: #fff;
-  padding: 18px 16px;
-  text-align: center;
-  font-weight: 700;
+background: var(--red);
+color: #fff;
+padding: 18px 16px;
+text-align: center;
+font-weight: 700;
 }
-    .lead{ max-width:900px; margin:16px auto 0; text-align:center; color:#030303; opacity:.95; }
-    .container{
-      max-width:1100px; margin:28px auto; padding:0 16px;
-      display:grid; gap:16px;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    }
-    .card{
-      background:var(--card); border-radius:14px; padding:20px; text-decoration:none; color:inherit;
-      box-shadow:0 6px 14px rgba(0,0,0,.06); transition:transform .15s ease, box-shadow .15s ease;
-      display:flex; flex-direction:column; align-items:flex-start; min-height:180px;
-    }
-    .card:hover{ transform: translateY(-3px); box-shadow:0 12px 24px rgba(0,0,0,.10); }
-    .icon{
-      font-size:40px; line-height:1; margin-bottom:12px;
-    }
-    .card h3{ margin:4px 0 6px; font-size:18px; }
-    .card p{ margin:0; color:var(--muted); font-size:14px; }
 
-    /* kani kay pang modal click*/
-    .modal{
-      position:fixed; inset:0; display:none; place-items:center; padding:16px;
-      background:rgba(0,0,0,.45);
-    }
-    .modal:target{ display:grid; }
-    .dialog{
-      width:min(600px, 92vw); background:#fff; border-radius:16px; padding:20px 18px;
-      box-shadow:0 20px 40px rgba(0,0,0,.25);
-      animation:pop .15s ease;
-    }
-    @keyframes pop{ from{transform:scale(.98); opacity:0} to{transform:scale(1); opacity:1} }
-    .dialog header{ background:none; color:#111; padding:0; text-align:left; }
-    .dialog h2{ margin:0 0 2px; }
-    .dialog p{ margin:0 0 14px; color:var(--muted) }
-    .form-row{ display:grid; gap:10px; grid-template-columns: 1fr 1fr; }
-    .form-row > * { min-width:0; }
-    label{ font-size:14px; color:#374151; display:block; margin:10px 0 6px;}
-    input, select, textarea{
-      width:100%; padding:10px 12px; border:1px solid #e5e7eb; border-radius:10px; font:inherit; background:#fff;
-    }
-    textarea{ resize:vertical; min-height:90px; }
-    .actions{ display:flex; gap:10px; margin-top:14px; justify-content: end; }
-    .btn{
-      appearance:none; border:none; border-radius:10px; padding:10px 16px; font-weight:600; cursor:pointer; text-decoration:none; display:inline-block;
-    }
-    .btn-primary{ background:var(--red); color:#fff; }
-    .btn-ghost{ background:#f3f4f6; color:#111; }
-    .close{ margin-left:auto; }
-    .footer-note{ text-align:center; color:#6b7280; font-size:12px; margin:18px 0 28px; }
+/* --- APPLY SLIDE-IN ANIMATION TO MAIN ELEMENTS --- */
+
+.lead{
+    max-width:900px;
+    margin:16px auto 0;
+    text-align:center;
+    color:#030303;
+    opacity:0; /* Start invisible */
+    /* Apply animation with a slight delay */
+    animation: slideUp 0.6s ease-out forwards 0.1s;
+}
+
+.container{
+max-width:1100px;
+    margin:28px auto;
+    padding:0 16px;
+ display:grid;
+    gap:16px;
+grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    
+    opacity:0; /* Start invisible */
+    /* Apply animation */
+    animation: slideUp 0.6s ease-out forwards 0.2s; /* Start after .lead */
+}
+
+.card{
+background:var(--card); border-radius:14px; padding:20px; text-decoration:none; color:inherit;
+box-shadow:0 6px 14px rgba(0,0,0,.06); transition:transform .15s ease, box-shadow .15s ease;
+display:flex; flex-direction:column; align-items:flex-start; min-height:180px;
+}
+.card:hover{ transform: translateY(-3px); box-shadow:0 12px 24px rgba(0,0,0,.10); }
+.icon{
+font-size:40px; line-height:1; margin-bottom:12px;
+}
+.card h3{ margin:4px 0 6px; font-size:18px; }
+.card p{ margin:0; color:var(--muted); font-size:14px; }
+
+/* kani kay pang modal click*/
+.modal{
+position:fixed; inset:0; display:none; place-items:center; padding:16px;
+background:rgba(0,0,0,.45);
+}
+.modal:target{ display:grid; }
+.dialog{
+width:min(600px, 92vw); background:#fff; border-radius:16px; padding:20px 18px;
+box-shadow:0 20px 40px rgba(0,0,0,.25);
+animation:pop .15s ease;
+}
+@keyframes pop{ from{transform:scale(.98); opacity:0} to{transform:scale(1); opacity:1} }
+.dialog header{ background:none; color:#111; padding:0; text-align:left; }
+.dialog h2{ margin:0 0 2px; }
+.dialog p{ margin:0 0 14px; color:var(--muted) }
+.form-row{ display:grid; gap:10px; grid-template-columns: 1fr 1fr; }
+.form-row > * { min-width:0; }
+label{ font-size:14px; color:#374151; display:block; margin:10px 0 6px;}
+input, select, textarea{
+ width:100%; padding:10px 12px; border:1px solid #e5e7eb; border-radius:10px; font:inherit; background:#fff;
+}
+textarea{ resize:vertical; min-height:90px; }
+.actions{ display:flex; gap:10px; margin-top:14px; justify-content: end; }
+.btn{
+appearance:none; border:none; border-radius:10px; padding:10px 16px; font-weight:600; cursor:pointer; text-decoration:none; display:inline-block;
+}
+.btn-primary{ background:var(--red); color:#fff; }
+.btn-ghost{ background:#f3f4f6; color:#111; }
+.close{ margin-left:auto; }
+.footer-note{ text-align:center; color:#6b7280; font-size:12px; margin:18px 0 28px; }
+
+/* --- GO BACK BUTTON STYLING (No Animation needed here, only on services.html) --- */
 .go-back {
-  text-align: center;
-  margin: 20px 0;
+text-align: center;
+margin: 20px 0;
+  opacity:0; /* Start invisible */
+  animation: slideUp 0.6s ease-out forwards 0.3s; /* Delayed slide-in */
 }
 
 .go-back .btn {
-  display: inline-block;
-  background: #c62828;
-  color: #fff;
-  padding: 10px 25px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 16px;
-  transition: background 0.3s;
+display: inline-block;
+background: #c62828;
+color: #fff;
+padding: 10px 25px;
+border-radius: 8px;
+ text-decoration: none;
+font-size: 16px;
+transition: background 0.3s;
 }
 
 .go-back .btn:hover {
-  background: #c24747;
+background: #c24747;
 }
-
-
-    
-    

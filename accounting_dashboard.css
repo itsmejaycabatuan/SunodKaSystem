@@ -1,47 +1,270 @@
-body {
+  /* --- Global Reset and Base --- */
+  body {
       font-family: Arial, sans-serif;
       background: #f4f4f4;
-      padding: 20px;
-      text-align: center;
-    }
-    h1 {
+      margin: 0;
+      padding: 0;
+  }
+  h1 {
       color: #a22525;
-    }
-    table {
-      margin: 20px auto;
-      border-collapse: collapse;
-      width: 90%;
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    th, td {
-      padding: 12px;
+      margin-top: 0;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
       border-bottom: 1px solid #ddd;
+  }
+  h2 {
+      color: #fff;
       text-align: center;
-    }
-    th {
+      padding: 20px 0;
+      margin: 0;
+      font-size: 20px;
+  }
+
+  /* --- Layout: Flex Container --- */
+  .dashboard-container {
+      display: flex;
+      min-height: 100vh;
+  }
+
+  /* --- Sidebar Styling --- */
+  .sidebar {
+      width: 250px;
+      background: #333; /* Dark background */
+      color: white;
+      padding: 0;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  /* Sidebar Navigation */
+  .sidebar-nav {
+      width: 100%;
+      flex-grow: 1; /* Pushes logout button to the bottom */
+      padding: 10px 0;
+  }
+  .nav-item {
+      display: block;
+      padding: 12px 20px;
+      color: #ddd;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      font-size: 15px;
+  }
+  .nav-item:hover, .nav-item.active {
       background: #a22525;
       color: white;
-    }
-    tr:hover {
-      background: #f9f9f9;
-    }
-    a.btn {
+  }
+  .nav-item i {
+      margin-right: 10px;
+  }
+  .filter-section {
+      padding: 15px 20px;
+      color: #fff;
+  }
+  #filterStatus {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: none;
+  }
+
+  /* Sidebar Cards (Now Serving & Stats) */
+  .card {
+      background: #444;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 15px;
+      width: calc(100% - 30px);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      text-align: center;
+  }
+  .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 16px;
+      border-bottom: 1px solid #555;
+      padding-bottom: 5px;
+  }
+
+  .serving-number-large {
+      font-size: 40px;
+      font-weight: bold;
+      color: #27ae60; /* Done green color for visibility */
+      margin: 10px 0;
+  }
+
+  .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+  }
+  .stat-value {
+      display: block;
+      font-size: 20px;
+      font-weight: bold;
+      color: #a22525;
+  }
+  .stat-label {
+      display: block;
+      font-size: 12px;
+      color: #ddd;
+  }
+  .stat-value.total {
+      color: #fff;
+  }
+
+
+  /* --- Main Content Styling --- */
+  .main-content {
+      flex-grow: 1;
+      padding: 20px;
+      text-align: center;
+  }
+  /* Adjust table to new container */
+  table {
+      margin: 0 auto; /* Remove margin-top/bottom 20px, use padding from main-content */
+      border-collapse: collapse;
+      width: 100%; /* Take full width of main-content */
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  /* Remove centered text-align on body */
+  body {
+      text-align: left; 
+  }
+  .main-content h1 {
+      text-align: center;
+  }
+
+
+  /* --- Action Buttons (Existing) --- */
+  a.btn {
       text-decoration: none;
       padding: 6px 10px;
       border-radius: 5px;
       color: white;
       font-size: 13px;
-    }
-    .skip { background: #e67e22; }
-    .serve { background: #2980b9; }
-    .done { background: #27ae60; }
-    .logout {
+      margin: 2px; /* Add small margin for spacing */
+  }
+  .skip { background: #e67e22; }
+  .serve { background: #2980b9; }
+  .done { background: #27ae60; }
+
+
+  /* --- Logout Button (Relocated & Restyled) --- */
+  .logout {
       background: #a22525;
-      padding: 10px 20px;
+      padding: 15px 0;
       color: white;
       text-decoration: none;
-      border-radius: 6px;
+      width: 100%;
+      text-align: center;
+      font-size: 16px;
+      margin-top: auto; /* Stick to the bottom */
+      display: block;
+  }
+  .logout:hover {
+      background: #800000;
+  }
+  .logout i {
+      margin-right: 8px;
+  }
+
+
+  /* --- Custom Modal Styles (for Logout Confirmation) --- */
+
+  .custom-modal {
+      display: none; 
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.6); 
+      justify-content: center;
+      align-items: center;
+      animation: modalFadeIn 0.3s ease-out;
+  }
+
+  .modal-content {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 350px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      text-align: center;
+  }
+
+  .modal-content h2 {
+      color: #a22525; 
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 22px;
+  }
+
+
+  .modal-actions {
+      display: flex;
+      justify-content: space-around;
+      gap: 10px;
+      margin-top: 25px;
+  }
+
+  .modal-actions .btn {
+      flex-grow: 1;
+      padding: 10px 15px;
+      margin-top: 0;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
       display: inline-block;
-      margin-top: 20px;
-    }
+  }
+
+  .modal-actions .btn-ghost {
+      background: #f0f0f0;
+      color: #333;
+      border: 1px solid #ccc;
+  }
+  .modal-actions .btn-primary {
+      background: #a22525;
+      color: white;
+  }
+  .modal-actions .btn.done { /* Reusing your existing 'done' color for the Log Out button */
+      background: #a22525;
+  }
+  .modal-actions .btn.done:hover {
+      background: #800000;
+  }
+  @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+  }
+  .modal-content p {
+    /* **THIS IS THE CRITICAL LINE TO ADD/CHANGE** */
+    color: #444; /* Set a dark color (e.g., dark gray) */
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+/* --- New 'Processing' Button Style --- */
+.btn.processing {
+    background-color: #dc3545; /* Bootstrap Red */
+    color: white;
+}
+
+.btn.processing:hover {
+    background-color: #c82333;
+}
+
+/* --- Optional: Highlight the entire row when status is Processing --- */
+/* You would need to add a class to the <tr> based on status for this */
+/* For now, just styling the button will work. */

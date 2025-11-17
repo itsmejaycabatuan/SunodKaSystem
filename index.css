@@ -105,187 +105,463 @@ body{
       background: #ed6f71;
     }
     
-        #how-it-works {
-        
-    margin-top: 300px;
-    padding: 30px;
-    background: #f9f9f9;
+   /* === Quick Guide Section Styling === */
+#quick-guide-modern {
+   margin-top: 120px;
+    padding: 60px 20px;
     text-align: center;
-    }
+    background-color: #f0f2f5; 
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-    #how-it-works h2 {
-    margin-bottom: 25px;
-    font-size: 30px;
-    color: #a80101;
-      font-family: "Funnel Display", sans-serif;
+.guide-heading {
+    margin-bottom: 50px;
+    font-size: 2em;
+    color: #343a40;
+    font-weight: 700;
+}
+
+/* === Steps Grid Container (No Change) === */
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Responsive adjustments (No Change) */
+@media (max-width: 992px) {
+    .steps-container {
+        grid-template-columns: repeat(2, 1fr); 
     }
-#how-it-works p{
-  margin-top: 10px;
-     font-family: "Funnel Display", sans-serif;
 }
-#how-it-works h3{
-  font-family: "Funnel Display", sans-serif;
+
+@media (max-width: 576px) {
+    .steps-container {
+        grid-template-columns: 1fr; 
+    }
 }
-    .card-container {
+
+/* === Individual Step Card Styling (No Change) === */
+.step-card {
+    background: #ffffff;
+    border-radius: 15px; 
+    padding: 30px 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); 
+    transition: all 0.3s ease-in-out;
+    border: 1px solid transparent; 
+    min-height: 220px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* 🟥 UPDATED HOVER EFFECT: Now includes the Red Highlight! 🟥 */
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(230, 57, 70, 0.2); /* Red Shadow */
+    border: 2px solid #e63946; /* Stronger Red Highlight Border */
+}
+
+/* REMOVED: .step-card.active-step (No longer needed) */
+
+
+/* === Icon Styling === */
+.step-icon-wrapper {
+    margin-bottom: 15px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    background-color: #e0f0ff; 
+    /* Remove font properties if you no longer use Font Awesome icons */
+    /* color: #007bff; */ 
+    /* font-size: 1.8em; */
+    margin: 0 auto 20px;
+    
+    /* Center the image perfectly */
     display: flex;
     justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    }
+    align-items: center;
+}
 
-    .card {
-    background: #fff;
-   cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 20px;
-    width: 300px;
+/* 2. Style the image itself */
+.step-image {
+    /* Ensure the image fits within the 60x60 circle */
+    max-width: 100%; 
+    max-height: 100%;
+    /* You might use 'width: 40px;' and 'height: 40px;' for a consistent size */
+    width: 40px; 
+    height: 40px;
+    /* Optional: This property ensures the image looks good if it doesn't match the aspect ratio */
+    object-fit: contain; 
+}
+
+
+/* --- UPDATE HOVER EFFECT FOR IMAGE COLORS --- */
+/* If your images are SVGs or use background colors that you want to change on hover, 
+   you would typically need to style the image itself or use color filters. 
+   If your images are PNGs/JPGs, the only thing that will change is the wrapper's background. */
+.step-card:hover .step-icon-wrapper {
+    background-color: #ffe0e3; /* Light Red Background on hover */ 
+    /* The image itself won't change color unless it's a filtered SVG */
+}
+
+.step-card:hover .step-image {
+    /* Optional: Add a subtle animation to the image on hover */
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+.step-description {
+    font-size: 0.95em;
+    color: #6c757d;
+    line-height: 1.4;
+    font-weight: 400;
+}
+/* === Announcements Section Styling === */
+#announcements-modern {
+    padding: 60px 20px;
     text-align: center;
-    transition: transform 0.2s;
-    height: 300px;
-      border: 2px solid transparent; 
+    /* Using a subtle, comfortable background color instead of a busy image */
+    background-color: #f8f9fa; /* Light, calming grey/blue */
+    color: #343a40; /* Dark text for contrast */
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.announcements-heading {
+    margin-bottom: 30px;
+    font-size: 2.2em; /* Slightly larger, more imposing */
+    color: #007bff; /* Primary brand color: a friendly blue */
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* === Announcement Cards Container === */
+.announcement-list-modern {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* === Individual Announcement Card Styling (The 'Comfortable' Look) === */
+.announcement-card {
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent white for a glass effect */
+    border-radius: 18px; /* More rounded corners for a softer feel */
+    padding: 20px 30px;
+    /* Subtle shadow for depth */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); 
+    /* Gentle transition for all changes */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+    border-left: 5px solid #007bff; /* Accent border on the left */
+    text-align: left;
+}
+
+/* Hover Effect: More noticeable lift and slightly darker shadow */
+.announcement-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.announcement-text {
+    margin: 0;
+    font-size: 1.1em;
+    color: #495057;
+    line-height: 1.5;
+    display: flex; /* Align icon and text */
+    align-items: center;
+}
+
+.announcement-text strong {
+    color: #e63946; /* A pop of contrasting color for important dates/times */
+    font-weight: 800;
+}
+
+/* Icon Styling */
+.announcement-text i {
+    margin-right: 15px;
+    font-size: 1.3em;
+    color: #007bff;
+}
+
+/* Specific highlight colors for better differentiation */
+.highlight-closure {
+    border-left-color: #e63946; /* Red for closure/warning */
+}
+
+.highlight-closure .announcement-text i {
+    color: #e63946;
+}
+
+.highlight-hours {
+    border-left-color: #ffc107; /* Yellow/Orange for info/timing */
+}
+
+.highlight-hours .announcement-text i {
+    color: #ffc107;
+}
+/* === Contact / Support Section Styling === */
+#contact-support-modern {
+    padding: 80px 20px 60px;
+    text-align: center;
+    background-color: #f8f9fa; /* Light, comfortable background */
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contact-heading {
+    margin-bottom: 50px;
+    font-size: 2em;
+    color: #e63946; /* Using a vibrant, modern red */
+    font-weight: 700;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr; /* Stack cards on mobile */
     }
-
-      .card:hover {
-      transform: translateY(-5px);
-        border-color:#a80101; 
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2); 
-      }
-
-   .card {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  padding: 20px;
-  width: 300px;
-  height: 300px;
-  display: flex;                
-  flex-direction: column;       
-  justify-content: center;      
-  align-items: center;          
-  text-align: center;
-  transition: transform 0.2s;
-}
-#announcements {
-
-  color: #fff; 
-  padding: 30px;
-  text-align: center;
-  
-  object-fit: cover;
 }
 
-#announcements h2 {
-  margin-bottom: 15px;
-  font-size: 35px;
-  color: #b30000;
-    font-family: "Funnel Display", sans-serif;
-}
-
-.announcement-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.announcement {
-  background: #ffffff;
-
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-  transition: transform 0.2s;
-}
-
-.announcement:hover {
-  transform: translateY(-3px);
-}
-
-.announcement p {
-  margin: 0;
-  font-size: 16px;
-  color: #333;
-     font-family: "Funnel Display", sans-serif;
-}
-#contact-support {
-
-  padding: 30px;
-  background: #f9f9f9;
-  text-align: center;
-
-}
-
-#contact-support h2 {
-  margin-bottom: 25px;
-  font-size: 30px;
-  color: #b30000;
-     font-family: "Funnel Display", sans-serif;
-}
-
-.contact-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
+/* Individual Card Styling */
 .contact-card {
-  background: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 20px;
-  width: 300px;             
-  height: 300px;           
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
-
-  display: flex;             
-  flex-direction: column;
-  justify-content: center;  
-  align-items: center;      
-   border: 2px solid transparent; 
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 30px 20px;
+    /* Softer, modern shadow for a comfortable feel */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); 
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: left;
+    border: 1px solid #f0f0f0; /* Subtle border */
 }
 
 .contact-card:hover {
-  transform: translateY(-5px);
-     border-color:#a80101; 
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2); 
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
 }
 
-.contact-card h3 {
-  color: #b30000;
-  margin-bottom: 10px;
-      font-family: "Funnel Display", sans-serif;
+.office-title {
+    font-size: 1.3em;
+    color: #343a40;
+    margin-bottom: 25px;
+    font-weight: 800;
+    border-bottom: 2px solid #e63946;
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
-.contact-card p {
-  margin: 5px 0;
-  font-size: 15px;
-  color: #333;
-      font-family: "Funnel Display", sans-serif;
-  
+/* Info Lines (Location, Phone, Email) */
+.contact-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1em;
+    color: #6c757d;
 }
 
+.contact-info i {
+    font-size: 1.2em;
+    color: #e63946; /* Use red for the icons */
+    margin-right: 15px;
+    width: 20px; /* Ensure icons align properly */
+    text-align: center;
+}
+
+.contact-info a {
+    color: #343a40;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.contact-info a:hover {
+    color: #e63946;
+}
+/* === Footer Styling === */
 #main-footer {
-  background: #b30000;       
-  color: #fff;
-  text-align: center;
-  padding: 15px 10px;
- 
-  font-size: 14px;
-  border-top: 3px solid #800000; 
+    background-color: #a01010; /* A darker, richer red for the footer */
+    color: #ffffff;
+    padding: 25px 20px;
+    text-align: center;
+    font-size: 0.9em;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #main-footer p {
-  margin: 0;
-      font-family: "Funnel Display", sans-serif;
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: 0.5px;
 }
 .card-icon img{
   margin-bottom: 20px;
   height: 50px;
+}
+/* --- New Global Animation Classes --- */
+
+/* Base style for elements that will animate in */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out; /* Smooth transition for the effect */
+}
+
+/* Style for when the element becomes visible */
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+ /* --- New Keyframe Animations for Hero Section --- */
+
+@keyframes wrapperSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px); /* Start above its final position (slide down) */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes wrapperSlideOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(50px); /* Move down and fade out when leaving */
+    }
+}
+
+/* --- Hero Section Styling --- */
+
+.wrapper {
+    padding-top: 300px;
+    padding-left: 40px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+
+    /* 1. APPLY SLIDE-IN ANIMATION ON PAGE LOAD */
+    animation: wrapperSlideIn 0.8s ease-out forwards;
+    opacity: 0; /* Start invisible */
+}
+
+/* 2. NEW CLASS FOR SLIDE-OUT TRANSITION */
+.wrapper.slide-out {
+    animation: wrapperSlideOut 0.5s ease-in forwards;
+}
+
+/* You must also add the slide-in animation to the navbar for consistency */
+.navbar {
+    /* Existing fixed styles... */
+    /* ... */
+    animation: wrapperSlideIn 0.8s ease-out forwards 0.1s; /* Slightly delayed slide-in */
+    opacity: 0;
+}/* Add to index.css */
+
+.button-group {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    justify-content: center;
+    margin-top: 30px; /* Space below the description */
+}
+
+/* Base button style (assuming .btn is already defined) */
+.btn {
+    /* ... existing styles for .btn ... */
+}
+
+/* Style for the new secondary button */
+.btn-secondary {
+    background-color: #555; /* A neutral color */
+    color: white;
+    /* ... ensure it matches size of other buttons ... */
+}
+
+.btn-secondary:hover {
+    background-color: #333;
+}
+
+/* --- Modal Styles (Copy/Paste from submit_request.css if not already in index.css) --- */
+
+.custom-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    text-align: left; /* Changed to left for form fields */
+}
+
+.modal-content h2 {
+    color: #b30000;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 22px;
+    text-align: center;
+}
+
+.modal-content p {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.modal-actions .btn {
+    flex-grow: 1;
+    margin-top: 0;
+    display: inline-block;
+}
+
+label { /* Basic label styling for the form */
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+input[type="text"] { /* Basic input styling for the form */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
 }

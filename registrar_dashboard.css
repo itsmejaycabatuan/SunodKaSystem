@@ -1,50 +1,255 @@
-  body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      padding: 20px;
-      text-align: center;
-    }
-    h1 {
-      color: #a22525;
-    }
-    
-    table {
-      margin: 20px auto;
-      border-collapse: collapse;
-      width: 90%;
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    th, td {
-      padding: 12px;
-      border-bottom: 1px solid #ddd;
-      text-align: center;
-    }
-    th {
-      background: #a22525;
-      color: white;
-    }
-    tr:hover {
-      background: #f9f9f9;
-    }
-    a.btn {
-      text-decoration: none;
-      padding: 6px 10px;
-      border-radius: 5px;
-      color: white;
-      font-size: 11px;
-      margin: 2px;
-      display: inline-block;
-    }
-    .skip { background: #e67e22; }
-    .serve { background: #2980b9; }
-    .done { background: #27ae60; }
-    .logout {
-      background: #a22525;
-      padding: 10px 20px;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      display: inline-block;
-      margin-top: 20px;
-    }
+/* --- General Page & Container Setup --- */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* -------------------------------------- */
+/* --- 🧭 Sidebar Styles --- */
+/* -------------------------------------- */
+.sidebar {
+    width: 250px;
+    background: #2c3e50; /* Darker blue/gray for Registrar */
+    color: white;
+    padding: 20px 0;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ecf0f1;
+}
+
+/* Sidebar Navigation */
+.sidebar-nav {
+    flex-grow: 1;
+    margin-top: 15px;
+    padding: 0 15px;
+}
+
+.nav-item {
+    display: block;
+    padding: 12px 10px;
+    text-decoration: none;
+    color: #ecf0f1;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    transition: background-color 0.2s;
+}
+
+.nav-item i {
+    margin-right: 10px;
+}
+
+.nav-item:hover {
+    background: #34495e;
+}
+
+.nav-item.active {
+    background: #a22525; /* Highlight active page with red/maroon */
+    font-weight: bold;
+}
+
+/* Filter Dropdown */
+.filter-section {
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 1px solid #34495e;
+    font-size: 14px;
+}
+.filter-section label {
+    display: block;
+    margin-bottom: 5px;
+}
+.filter-section select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #bdc3c7;
+    background: white;
+    color: #2c3e50;
+}
+
+/* Stats and Now Serving Cards */
+.card {
+    background: #34495e;
+    border-radius: 6px;
+    padding: 15px;
+    margin: 10px 15px;
+    text-align: center;
+}
+
+.now-serving-card h3 {
+    margin-top: 0;
+    color: #e74c3c; /* Red highlight for attention */
+}
+.serving-number-large {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #ecf0f1;
+}
+
+.stats-card .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+.stat-value {
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #2ecc71; /* Green highlight */
+}
+.stat-label {
+    font-size: 0.8em;
+    color: #bdc3c7;
+}
+.stat-value.total {
+    color: #f39c12; /* Orange highlight for total */
+}
+
+/* Logout Link (at the bottom of sidebar) */
+.logout {
+    margin: 20px 15px;
+    text-align: center;
+    background: #a22525;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    display: block;
+    transition: background-color 0.2s;
+}
+.logout:hover {
+    background: #8b1e1e;
+}
+
+/* -------------------------------------- */
+/* --- 📋 Main Content & Table --- */
+/* -------------------------------------- */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.main-content h1 {
+    color: #a22525;
+    margin-top: 0;
+    text-align: center;
+}
+
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+th {
+    background: #a22525; /* Red/Maroon table header */
+    color: white;
+}
+tr:hover {
+    background: #f9f9f9;
+}
+
+
+/* -------------------------------------- */
+/* --- ✅ Action Buttons --- */
+/* -------------------------------------- */
+a.btn {
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 11px;
+    margin: 2px;
+    display: inline-block;
+}
+.skip { background: #e67e22; } /* Orange */
+.serve { background: #2980b9; } /* Blue */
+.done { background: #27ae60; } /* Green */
+
+/* The .processing rule is intentionally removed */
+
+
+/* -------------------------------------- */
+/* --- 🚪 Modal Styles (Logout Confirmation) --- */
+/* -------------------------------------- */
+.custom-modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); 
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+    text-align: center;
+    color: #333;
+}
+
+.modal-content h2 {
+    color: #a22525;
+    margin-top: 0;
+}
+
+.modal-content p {
+    color: #444; 
+    margin-bottom: 20px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.btn.btn-ghost {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+/* Style the modal Log Out button with the main theme color */
+.modal-actions .btn.done {
+    background: #a22525;
+   
+    color: #f7fbff;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 15px;
+
+}

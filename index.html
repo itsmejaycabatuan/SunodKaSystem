@@ -1,103 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SunodKa</title>
-    <link rel="stylesheet" href="index.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SunodKa</title>
+<link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-     <div class="bg"></div>
-           <div class="navbar">
-          <div class="first-logo">
-        <img src="images/logo.png" alt="systemlogo" class="logo">
-        </div>
-        <div class="text-center">
-         <p class="location">St.Cecilia's College-Cebu, Inc.<br>
-            Supervised by the Lasallian Schools Supervision Office (LASSO)<br>
-            Cebu Sout Natioanal Highway, Ward II, Minglanilla, Cebu.
-         </p>
-         </div>
-         <div class="second-logo">
-         <img src="images/itlogo.png" alt="BSIT" class="itlogo">
-        </div>
-        </div>
-       </header>
+<div class="bg"></div>
+<div class="navbar">
+<div class="first-logo">
+<img src="images/logo.png" alt="systemlogo" class="logo">
+</div>
+<div class="text-center">
+<p class="location">St.Cecilia's College-Cebu, Inc.<br>
+ Supervised by the Lasallian Schools Supervision Office (LASSO)<br>
+Cebu Sout Natioanal Highway, Ward II, Minglanilla, Cebu.
+</p>
+</div>
+<div class="second-logo">
+<img src="images/itlogo.png" alt="BSIT" class="itlogo">
+ </div>
+ </div>
+</header>
 
-       
-       <div class="wrapper">
-            <h1 class="welcome">Welcome to SunodKa,</h1>
-            <p class="des">Get your number online and wait with ease. No more long lines, just smooth service<br>
-               Skip the hassle, follow the queue, ang get served faster.
-            </p> 
-<a href="services.html">
-  <button class="btn">Get Started</button>
-</a>
-       </div>   
-      
-       <section id="how-it-works">
-  <h2>Quick Guide — How SunodKa Works</h2>
-  <div class="card-container">
-    
-    <div class="card">
-      <div class="card-icon"><img src="images/select.png" alt=""></div>
-      <h3 style="color: red;">Step 1</h3>
-      <p>Select Service (Registrar / Accounting / etc.), Click Get Started</p>
+
+<div class="wrapper">
+<h1 class="welcome">Welcome to SunodKa,</h1>
+<p class="des">Get your number online and wait with ease. No more long lines, just smooth service<br>
+Skip the hassle, follow the queue, ang get served faster.
+ </p> 
+<div class="button-group">
+    <a href="services.html">
+        <button class="btn">Get Started</button>
+    </a>
+    <a href="monitor.php">
+        <button class="btn">Live Preview</button>
+    </a>
+    <button class="btn btn-secondary" id="findQueueBtn">Find Queue Number</button>
+</div>
+</div> 
+
+<section id="quick-guide-modern" class="fade-in-section">
+<h2 class="guide-heading">Quick Guide — How SunodKa Works</h2>
+    <div class="steps-container">
+        <div class="step-card">
+            <div class="step-icon-wrapper">
+                <img src="images/select.png" alt="Select Service" class="step-image">
+            </div>
+            <p class="step-number">Step 1</p>
+            <p class="step-description">Select Service (Registrar / Accounting / etc.). Click Get Started</p>
+        </div>
+        <div class="step-card"> 
+            <div class="step-icon-wrapper">
+                <img src="images/form (2).png" alt="Fill out form" class="step-image">
+            </div>
+            <p class="step-number">Step 2</p>
+            <p class="step-description">Fill in Name, Course, Document Request</p>
+        </div>
+        <div class="step-card"> 
+            <div class="step-icon-wrapper">
+                <img src="images/capture.png" alt="Fill out form" class="step-image">
+            </div>
+            <p class="step-number">Step 3</p>
+            <p class="step-description">Get Queue Number</p>
+        </div>
+        <div class="step-card"> 
+            <div class="step-icon-wrapper">
+                <img src="images/waiting-room.png" alt="Fill out form" class="step-image">
+            </div>
+            <p class="step-number">Step 4</p>
+            <p class="step-description">Wait for your turn</p>
+        </div>
     </div>
-    <div class="card">
-     <div class="card-icon"><img src="images/form (2).png" alt=""></div>
-      <h3 style="color: red;">Step 2</h3>
-      <p>Fill in Name, Course, Document Request</p>
-    </div>
-    <div class="card">
-        <div class="card-icon"><img src="images/capture.png" alt=""></div>
-      <h3 style="color: red;">Step 3</h3>
-      <p>Get Queue Number (Screenshot)</p>
-    </div>
-    <div class="card">
-       <div class="card-icon"><img src="images/waiting-room.png" alt=""></div>
-      <h3 style="color: red;">Step 4</h3>
-      <p>Wait for your number to be called on the monitor</p>
-    </div>
-  </div>
 </section>
-<section id="announcements">
-  <h2>📢 Announcements</h2>
-  <div class="announcement-list">
-    <div class="announcement">
-      <p>Registrar and Accounting will be closed on <strong>October 10 - 25, 2025</strong>.</p>
-    </div>
-    <div class="announcement">
-      <p>Peak hours: <strong>10 AM – 12 NN</strong>. Please plan accordingly.</p>
-    </div>
-  </div>
+<section id="announcements-modern" class="fade-in-section">
+ <h2 class="announcements-heading">✨ Important Announcements</h2>
+<div class="announcement-list-modern">
+<div class="announcement-card highlight-closure">
+<p class="announcement-text">
+<i class="fas fa-calendar-times"></i> Registrar and Accounting will be closed on 
+ <strong>October 10 - 25, 2025</strong>.
+ </p>
+ </div>
+<div class="announcement-card highlight-hours">
+ <p class="announcement-text">
+<i class="fas fa-clock"></i> Peak hours: 
+ <strong>10 AM - 12 NN</strong>. Please plan accordingly.
+ </p>
+ </div>
+ </div>
 </section>
-<section id="contact-support">
-  <h2>📞 Contact / Support</h2>
-  <div class="contact-container">
-    <div class="contact-card">
-      <h3>Registrar Office</h3>
-      <p>📍 Main Building</p>
-      <p>☎ (032) 123-4567</p>
-      <p>✉ registrar@scc.edu.ph</p>
-    </div>
-    <div class="contact-card">
-      <h3>Accounting Office</h3>
-      <p>📍 Main Building</p>
-      <p>☎ (032) 234-5678</p>
-      <p>✉ accounting@scc.edu.ph</p>
-    </div>
-    <div class="contact-card">
-      <h3>IT Support</h3>
-      <p>📍 IT Office, 4th Floor</p>
-      <p>☎ (032) 345-6789</p>
-      <p>✉ support@scc.edu.ph</p>
-    </div>
-  </div>
+<section id="contact-support-modern" class="fade-in-section">
+ <h2 class="contact-heading">📞 Contact / Support</h2>
+
+<div class="contact-grid">
+
+ <div class="contact-card">
+ <h3 class="office-title">Registrar Office</h3>
+<div class="contact-info location">
+ <i class="fas fa-map-marker-alt"></i>
+<span>Main Building</span>
+ </div>
+<div class="contact-info phone">
+<i class="fas fa-phone-alt"></i>
+ <a href="tel:+63321234567">(032) 123-4567</a>
+ </div>
+ <div class="contact-info email">
+ <i class="fas fa-envelope"></i>
+<a href="mailto:registrar@scc.edu.ph">registrar@scc.edu.ph</a>
+ </div>
+ </div>
+
+<div class="contact-card">
+<h3 class="office-title">Accounting Office</h3>
+<div class="contact-info location">
+<i class="fas fa-map-marker-alt"></i>
+<span>Main Building</span>
+ </div>
+ <div class="contact-info phone">
+<i class="fas fa-phone-alt"></i>
+ <a href="tel:+63322345678">(032) 234-5678</a>
+ </div>
+ <div class="contact-info email">
+<i class="fas fa-envelope"></i>
+ <a href="mailto:accounting@scc.edu.ph">accounting@scc.edu.ph</a>
+</div>
+ </div>
+
+<div class="contact-card">
+<h3 class="office-title">IT Support</h3>
+<div class="contact-info location">
+<i class="fas fa-map-marker-alt"></i>
+ <span>IT Office, 4th Floor</span>
+ </div>
+<div class="contact-info phone">
+<i class="fas fa-phone-alt"></i>
+ <a href="tel:+63323456789">(032) 345-6789</a>
+ </div>
+<div class="contact-info email">
+ <i class="fas fa-envelope"></i>
+<a href="mailto:support@scc.edu.ph">support@scc.edu.ph</a>
+ </div>
+ </div>
+
+ </div>
 </section>
 <footer id="main-footer">
-  <p>© 2025 St. Cecilia's College – SunodKa Queue System. All Rights Reserved.</p>
-</footer>
+<p>&copy; 2025 St. Cecilia's College - SunodKa Queue System. All Rights Reserved.</p>
+ </footer>
 
+
+<div class="custom-modal" id="findQueueModal">
+    <div class="modal-content">
+        <h2>🔍 Find Your Queue Number</h2>
+        <p>Enter your details to retrieve your queue slip.</p>
+        <form method="POST" action="find_queue.php">
+            <label for="queueNumber">Queue Number (e.g., 005)</label>
+            <input type="text" id="queueNumber" name="queue_number" placeholder="Enter your 3-digit queue number" required>
+
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="full_name" placeholder="Enter the full name used in the request" required>
+            
+            <div class="modal-actions">
+                <button type="button" class="btn btn-ghost" id="closeFindModal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Retrieve Slip →</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script>
+ // Function to handle the intersection (Existing code)
+ const fadeInObserver = new IntersectionObserver((entries, observer) => {
+ entries.forEach(entry => {
+// Check if the element is intersecting (in view)
+ if (entry.isIntersecting) {
+ // Add the 'is-visible' class to trigger the CSS transition
+ entry.target.classList.add('is-visible');
+ // Stop observing after it has animated once
+observer.unobserve(entry.target);
+}
+});
+}, {
+// Options for the observer
+rootMargin: "0px 0px -100px 0px", // Start animation 100px before reaching the bottom
+threshold: 0.1 // Trigger when 10% of the item is visible
+ });
+
+// Get all elements with the 'fade-in-section' class
+const sections = document.querySelectorAll('.fade-in-section');
+
+ // Start observing each section
+ sections.forEach(section => {
+fadeInObserver.observe(section);
+ });
+
+    // NEW: Modal Toggle Logic
+    document.addEventListener('DOMContentLoaded', () => {
+        const findQueueBtn = document.getElementById('findQueueBtn');
+        const findQueueModal = document.getElementById('findQueueModal');
+        const closeFindModal = document.getElementById('closeFindModal');
+
+        findQueueBtn.addEventListener('click', () => {
+            findQueueModal.style.display = 'flex';
+        });
+
+        closeFindModal.addEventListener('click', () => {
+            findQueueModal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (event) => {
+            if (event.target === findQueueModal) {
+                findQueueModal.style.display = 'none';
+            }
+        });
+    });
+</script>
 </body>
 </html>

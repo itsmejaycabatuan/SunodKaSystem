@@ -1,75 +1,51 @@
+/* --- CSS ANIMATION FOR SLIDE-UP EFFECT --- */
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px); /* Start 50px below its final position */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at its original position */
+    }
+}
+
+/* --- BASE STYLES --- */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden; /* Prevent horizontal scrollbar during transition */
 }
 
-/* Create a blurred background layer */
+/* Blurred background layer */
 body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url(images/scc4.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  filter: blur(5px); /* Adjust blur intensity */
-  z-index: -1; /* Send behind content */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(images/scc4.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: blur(5px);
+    z-index: -1;
 }
 
-
-
-.container {
-  display: flex;
-  gap: 50px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 260px; 
-  padding-bottom: 50px; 
-
-}
-
-.card {
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
-  text-align: center;
-  padding: 60px 40px;
-  width: 280px;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
-}
-
-.card-icon {
-  font-size: 70px;
-  margin-bottom: 20px;
-}
-
-.card h2 {
-  font-size: 22px;
-  color: #b30000;
-  margin: 0;
-}
-
- header {
+/* --- NAVIGATION / HEADER --- */
+header {
     padding-top: 10px;
     background-color: #fff;
 }
 
 .navbar {
     display: flex;
-    flex-wrap: wrap;           
-    justify-content: center;  
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     padding: 5px 5%;
     position: fixed;
@@ -79,11 +55,11 @@ body::before {
     background: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     z-index: 1000;
-    gap: -7px;               
-
+    gap: 10px; /* Adjusted from -7px for better layout */
 }
+
 .first-logo, .text-center, .second-logo {
-    flex: 1 1 250px;          
+    flex: 1 1 250px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,30 +79,104 @@ body::before {
 }
 
 .location {
+     text-align: center;
     line-height: 1.4;
-     font-family: "Funnel Display", sans-serif;
-     font-size: 15px;
+    font-family: "Funnel Display", sans-serif;
+    font-size: 15px;
 }
+
+/* --- MAIN CONTENT CONTAINER (APPLYING SLIDE-UP) --- */
+.container {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Pushing content down to account for the fixed header */
+    margin-top: 260px;
+    padding-bottom: 50px;
+
+    /* 🚀 ANIMATION APPLICATION 🚀 */
+    animation: slideUp 0.8s ease-out forwards;
+    opacity: 0; /* Start invisible */
+}
+
+/* --- CARDS (IMPROVED STYLING WITH FASTER TRANSITION) --- */
+.card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    text-align: center;
+    padding: 60px 40px;
+    width: 280px;
+    cursor: pointer;
+    transition: all 0.4s ease; /* Unified transition for smoothness */
+}
+
+.card:hover {
+    transform: translateY(-8px); /* Slightly less dramatic lift */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25); /* More pronounced shadow */
+}
+
+.card-icon {
+    font-size: 70px;
+    margin-bottom: 20px;
+    /* Optional: Add a subtle animation delay to the cards themselves */
+    opacity: 0;
+    animation: slideUp 0.6s ease-out forwards 0.2s; /* Delayed slide-in */
+}
+
+.card h2 {
+    font-size: 22px;
+    color: #b30000;
+    margin: 0;
+}
+
+
+/* --- GO BACK BUTTON (APPLYING STAGGERED SLIDE-UP) --- */
 .go-back {
-  text-align: center;
+    text-align: center;
+    margin-top: 50px; /* Add margin for spacing */
+    margin-bottom: 50px; /* Add margin for spacing */
+    
+    /* 🚀 ANIMATION APPLICATION WITH DELAY 🚀 */
+    animation: slideUp 0.8s ease-out forwards;
+    animation-delay: 0.3s; /* Slides up slightly after the main container */
+    opacity: 0; /* Start invisible */
 }
 
 .go-back .btn {
-  display: inline-block;
-  background: #f4f3f3;
-  color: #a22525;
-  padding: 15px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 600;
-  transition: all 0.3s ease; 
+    display: inline-block;
+    background: #f4f3f3;
+    color: #a22525;
+    padding: 15px 25px; /* Increased padding */
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    border: 1px solid #ddd; /* Added subtle border */
 }
 
 .go-back .btn:hover {
-     
-               
-  box-shadow: 0 4px 10px rgba(162, 37, 37, 0.4); 
-  transform: translateY(-3px); 
+    background: #a22525;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(162, 37, 37, 0.6);
+    transform: translateY(-3px);
+}
+/* --- Add to services.css --- */
+@keyframes slideOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(30px); /* Content moves slightly down and fades out */
+    }
 }
 
+/* Ensure the container is initially set up for animation (as defined in our previous steps) */
+.container {
+    /* ... existing slideUp animation rules ... */
+    position: relative; /* Essential for smooth animation context */
+}
